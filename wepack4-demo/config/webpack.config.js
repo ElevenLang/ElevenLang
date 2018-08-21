@@ -2,18 +2,21 @@
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');// 新加
-
+const webpack = require('webpack');
 module.exports = {
-    entry: ['./src/index.js'],
+    entry: {
+        app: path.resolve(__dirname, '../src/app.js')
+    },
+    // entry: ['./src/index.js'],
     // entry: { main: './src/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        filename: '[name].[hash].js'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 use: {
                     loader: 'babel-loader',
                     query: {
@@ -28,6 +31,19 @@ module.exports = {
                     //如果需要，可以在 sass-loader 之前将 resolve-url-loader 链接进来
                     use: ['css-loader']
                 })
+            },
+            {
+                test: /\.scss/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                      loader: 'css-loader',
+                      options: {
+                        modules: true
+                      }
+                    },
+                    { loader: 'sass-loader' }
+                ]
             }
         ]
     },
@@ -39,7 +55,7 @@ module.exports = {
             template: './src/tpl/index.html',
             filename: 'index.html',
             title: 'test webpack'
-        })// 新加
-
+        }),// 新加
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
