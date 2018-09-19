@@ -13,6 +13,12 @@ module.exports = {
             test: /\.js$/,
             use: ['babel-loader?cacheDirectory=true'],
             include: path.join(__dirname, 'src')
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }, {
+            test: /\.scss$/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
         }]
     },
     resolve: {
@@ -21,11 +27,11 @@ module.exports = {
             component: path.join(__dirname, 'src/component'),
             router: path.join(__dirname, 'src/router'),
             actions: path.join(__dirname, 'src/redux/actions'),
-            reducers: path.join(__dirname, 'src/redux/reducers'),
-            redux: path.join(__dirname, 'src/redux')
+            reducers: path.join(__dirname, 'src/redux/reducers')
         }
     },
     devServer: {
         contentBase: path.join(__dirname, './dist')
-    }
+    },
+    devtool: 'inline-source-map'
 }

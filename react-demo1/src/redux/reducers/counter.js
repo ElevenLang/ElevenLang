@@ -11,6 +11,7 @@ const initState = {
 * reducer
  */
 export default function reducer(state = initState, action) {
+    console.log(action);
     switch (action.type) {
         case INCREMENT:
             return {
