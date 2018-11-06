@@ -6,7 +6,8 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, '/dist/'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        chunkFilename: '[name].js'
     },
     module: {
         rules: [{
@@ -19,6 +20,14 @@ module.exports = {
         }, {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
+        }, {
+            test: /\.(png|jpg|gif)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 8192
+                }
+            }]
         }]
     },
     resolve: {
