@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: yellowgreen;
+            background-image: linear-gradient(to right, transparent 50%, #655 0);
+            margin: 40px auto;
+        }
+
+        .pie1::before {
+            content: '';
+            display: block;
+            margin-left: 50%;
+            width: 50%;
+            height: 100%;
+            border-radius: 0 100% 100% 0/50%;
+            background-color: inherit;
+            transform-origin: left;
+            transform: rotate(45deg)
+        }
+
+        .pie2::before {
+            content: '';
+            display: block;
+            margin-left: 50%;
+            width: 50%;
+            height: 100%;
+            border-radius: 0 100% 100% 0/50%;
+            background: #655;
+            transform-origin: left;
+            transform: rotate(.1turn);
+        }
+
+        .pie3::before {
+            content: '';
+            display: block;
+            margin-left: 50%;
+            height: 100%;
+            border-radius: 0 100% 100% 0 / 50%;
+            background-color: inherit;
+            transform-origin: left;
+            animation: 
+            bg 6s step-end infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(.5turn);
+            }
+        }
+
+        @keyframes bg {
+            50% {
+                background: #655;
+            }
+        }
+        @keyframes circle{
+            0% { background: red}
+            10% {background: yellow}
+            100% {background: blue}
+        }
+        .pie4{
+            animation: circle 5s step-end infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box pie1"></div>
+    <div class="box pie2"></div>
+    <!-- <div class="box pie3"></div> -->
+    <div class="box pie4"></div>
+</body>
+
+</html>

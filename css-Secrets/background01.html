@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            color:#fff;
+            background: #7a3333;
+            border:10px solid red;
+            padding: 10px;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="box content-box">Can I haz semi-transparent borders? Pretty please?</div>
+    <ul>
+        <li>content-box</li>
+        <li>padding-box</li>
+        <li>border-box</li>
+    </ul>
+</body>
+</html>
+<script>
+    const lis = document.querySelectorAll('ul li');
+    const box = document.getElementById('box');
+    console.log(lis);
+    lis.forEach(item => {
+        item.onclick = () => box.style.backgroundClip = item.innerHTML;
+    })
+</script>
