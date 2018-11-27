@@ -6,10 +6,7 @@ import * as Rx from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  showTitle$ = new Rx.ReplaySubject<'title1'|'title2'>();
   constructor() {
-    this.showTitle$.next('title2');
     // const simpleObservable = new Rx.Observable((observer) => {
     //   observer.next(Math.random());
     //   observer.complete();
@@ -89,6 +86,10 @@ export class AppComponent {
     // const replaySubject = new Rx.BehaviorSubject(Math.random());
     // replaySubject.subscribe(v => console.log(v))
 
+    // buffer
+    const myInterval = Rx.interval(1000);
+    const bufferBy = Rx.fromEvent(document, 'click');
+    // const myBufferedInterval = myInterval.buffer(bufferBy);
 
 
   }

@@ -7,3 +7,6 @@ export const APP_ROUTES: Routes = [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     {path: '**', component: PageNotFoundComponent}
 ]
+
+// https://netbasal.com/implementing-auth-guard-with-componentless-route-in-angular-b50a21f3bd77
+// https://codeburst.io/using-angular-route-guard-for-securing-routes-eabf5b86b4d1
