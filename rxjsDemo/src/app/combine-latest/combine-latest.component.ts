@@ -18,14 +18,17 @@ export class CombineLatestComponent implements OnInit {
       fromEvent(document.getElementById(id), 'click').pipe(
         mapTo(1),
         startWith(0),
-        scan((acc, curr)=> acc + curr),
+        scan((acc, curr) => acc + curr),
         tap(setHtml(`${id}Total`))
-      )
+      );
     // addOneClick$('red').subscribe(v => console.log(v));
     // addOneClick$('black').subscribe(v => console.log(v));
     combineLatest(addOneClick$('red'), addOneClick$('black'))
-    .pipe(map(([val1, val2]) => val1 + val2))
-    .subscribe(setHtml('total'))
+      .pipe(map(([val1, val2]) => {
+        console.log(val1, val2);
+       return  val1 + val2;
+      }))
+      .subscribe(setHtml('total'));
 
   }
 

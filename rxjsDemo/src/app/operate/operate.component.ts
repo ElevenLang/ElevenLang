@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, fromEvent, timer, combineLatest, from, of } from 'rxjs';
-import { buffer, bufferCount, bufferTime, bufferToggle, bufferWhen, take, map, combineAll } from 'rxjs/operators';
+import { buffer, bufferCount, bufferTime, bufferToggle, bufferWhen, concat, take, map, combineAll, delay, merge, concatAll } from 'rxjs/operators';
 @Component({
   selector: 'app-operate',
   templateUrl: './operate.component.html',
@@ -83,10 +83,49 @@ export class OperateComponent implements OnInit {
 
 
 
+    // combineAll
+    // interval(1000).pipe(
+    //   take(2),
+    //   map(item => interval(1000).pipe(map(i => `Result (${item}): ${i}`), take(5))),
+    //   combineAll()
+    // ).subscribe(v => console.log(v));
 
 
+    // combineLatest
+    // combineLatest(interval(1000).pipe(take(3)),
+    // interval(1000).pipe(take(5)), (s, d) => `source: ${s} and dist: ${d}`).subscribe(v => console.log(v));
+
+    // const source = interval(1000).pipe(take(3));
+    // const dist = interval(1000).pipe(take(5));
+    // source.combineLatest(dist, (s, d) => `source: ${s} and dist: ${d}`);
+
+    // concat 按照时间顺序，前一个observable完成了再订阅下一个observable并发出值
+    // 如果不需要关心产生值的顺序，可以用merge来代替
+    // const sourceOne = of(1, 2, 3);
+    // const sourceTwo = of(4, 5, 6);
+    // sourceOne.pipe(concat(sourceTwo))
+    // .subscribe(v => console.log('Example: Basic concat:', v));
+    // sourceOne.subscribe(v => console.log(v));
+    // concat(sourceOne, sourceTwo).subscribe(v => console.log(v));
+    // const sourceThree = sourceOne.pipe(delay(3000));
+    // const example = sourceThree.pipe(concat(sourceTwo));
+    // example.subscribe(val => console.log('Example: Delayed source one:', val));
+    // sourceThree.pipe(
+    //   merge(sourceTwo)
+    // ).subscribe(v => console.log(v));
 
 
+    // concatAll
+    const source = interval(2000);
+    const example = source.pipe(
+      // 为了演示，增加10并作为 observable 返回
+      map(val => of(val + 10)),
+      // 合并内部 observables 的值
+      concatAll()
+    );
+    example.pipe(
+      map(item => console.log(item))
+    ).subscribe();
   }
 
 }
