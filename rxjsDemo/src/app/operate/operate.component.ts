@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, fromEvent, timer, combineLatest } from 'rxjs';
+import { interval, fromEvent, timer, combineLatest, from, of } from 'rxjs';
 import { buffer, bufferCount, bufferTime, bufferToggle, bufferWhen, take, map, combineAll } from 'rxjs/operators';
 @Component({
   selector: 'app-operate',
@@ -59,18 +59,29 @@ export class OperateComponent implements OnInit {
     // combined.subscribe(val => console.log(val));
 
     // combineLatest
-    const timeOne = timer(1000, 4000);
-    const timeTwo = timer(2000, 4000);
-    const timeThree = timer(3000, 4000);
-    const combined = combineLatest(timeOne, timeTwo, timeThree);
-    combined.subscribe(latestValues => {
-      const [timerValOne, timerValTwo, timerValThree] = latestValues;
-      console.log(
-        `Timer One Latest: ${timerValOne},
-         Timer Two Latest: ${timerValTwo},
-         Timer Three Latest: ${timerValThree}`
-      );
-    });
+    // const timeOne = timer(1000, 4000);
+    // const timeTwo = timer(2000, 4000);
+    // const timeThree = timer(3000, 4000);
+    // const combined = combineLatest(timeOne, timeTwo, timeThree);
+    // combined.subscribe(latestValues => {
+    //   const [timerValOne, timerValTwo, timerValThree] = latestValues;
+    //   console.log(
+    //     `Timer One Latest: ${timerValOne},
+    //      Timer Two Latest: ${timerValTwo},
+    //      Timer Three Latest: ${timerValThree}`
+    //   );
+    // });
+
+    // of from
+    // const a = of([{name: 'Joe', age: 30}, {name: 'Frank', age: 20},{name: 'Ryan', age: 50}]);
+    // a.pipe(map(item => {
+    //   console.log(item);
+    // })).subscribe();
+
+    // of(1, 2, 3).subscribe(item => console.log(item));
+    // of('hello').subscribe(item => console.log(item));
+
+
 
 
 
