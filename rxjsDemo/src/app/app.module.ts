@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { OperateComponent } from './operate/operate.component';
 import { SubjectComponent } from './subject/subject.component';
+import { CombineLatestComponent } from './combine-latest/combine-latest.component';
+import { PipeComponent } from './pipe/pipe.component';
 @NgModule({
   declarations: [
     AppComponent,
     OperateComponent,
-    SubjectComponent
+    SubjectComponent,
+    CombineLatestComponent,
+    PipeComponent
   ],
   imports: [
     BrowserModule,
