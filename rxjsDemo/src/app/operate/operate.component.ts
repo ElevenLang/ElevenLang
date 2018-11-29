@@ -121,7 +121,7 @@ export class OperateComponent implements OnInit {
       // 为了演示，增加10并作为 observable 返回
       map(val => of(val + 10)),
       // 合并内部 observables 的值
-      concatAll()
+      // concatAll()
     );
     example.pipe(
       map(item => console.log(item))
