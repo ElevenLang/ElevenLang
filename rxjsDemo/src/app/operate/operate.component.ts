@@ -143,6 +143,16 @@ export class OperateComponent implements OnInit {
     // source
     // .pipe(combineAll())
     // .subscribe(v => console.log(v));
+    const source = interval(2000);
+    const example = source.pipe(
+      // 为了演示，增加10并作为 observable 返回
+      map(val => of(val + 10)),
+      // 合并内部 observables 的值
+      // concatAll()
+    );
+    example.pipe(
+      map(item => console.log(item))
+    ).subscribe();
   }
 
 }
