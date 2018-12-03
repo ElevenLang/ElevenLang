@@ -86,6 +86,7 @@ export class OperateComponent implements OnInit {
     // combineAll
     // interval(1000).pipe(
     //   take(2),
+    //   // map(item => item * 10)
     //   map(item => interval(1000).pipe(map(i => `Result (${item}): ${i}`), take(5))),
     //   combineAll()
     // ).subscribe(v => console.log(v));
@@ -121,25 +122,37 @@ export class OperateComponent implements OnInit {
     //   // 为了演示，增加10并作为 observable 返回
     //   map(val => of(val + 10)),
     //   // 合并内部 observables 的值
-    //   // concatAll()
+    //   concatAll()
     // );
     // example.pipe(
     //   map(item => console.log(item))
     // ).subscribe();
 
-    const obs1 = interval(1000).pipe(take(5));
-    const obs2 = interval(500).pipe(take(2));
-    const obs3 = interval(2000).pipe(take(1));
-    // 发出3个 observables
-    const source = of(obs1, obs2, obs3);
-    source.pipe(concat())
-    .subscribe(v => console.log(v));
+    // const samplePromise = val => new Promise(resolve => resolve(val));
+    // const source = interval(2000);
+    // source.pipe(
+    //   map(val => samplePromise(val)),
+    //   concatAll()
+    // ).subscribe(v => console.log('Example with Promise:', v))
 
-
-
-
-
-
+    // const obs1 = interval(1000).pipe(take(5));
+    // const obs2 = interval(500).pipe(take(2));
+    // const obs3 = interval(2000).pipe(take(1));
+    // // 发出3个 observables
+    // const source = of(obs1, obs2, obs3);
+    // source
+    // .pipe(combineAll())
+    // .subscribe(v => console.log(v));
+    const source = interval(2000);
+    const example = source.pipe(
+      // 为了演示，增加10并作为 observable 返回
+      map(val => of(val + 10)),
+      // 合并内部 observables 的值
+      // concatAll()
+    );
+    example.pipe(
+      map(item => console.log(item))
+    ).subscribe();
   }
 
 }
