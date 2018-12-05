@@ -7,13 +7,15 @@ import { OperateComponent } from './operate/operate.component';
 import { SubjectComponent } from './subject/subject.component';
 import { CombineLatestComponent } from './combine-latest/combine-latest.component';
 import { PipeComponent } from './pipe/pipe.component';
+import { EmptyComponent } from './empty/empty.component';
 @NgModule({
   declarations: [
     AppComponent,
     OperateComponent,
     SubjectComponent,
     CombineLatestComponent,
-    PipeComponent
+    PipeComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, fromEvent, timer, combineLatest, from, of, zip, empty, Observable } from 'rxjs';
+import { interval, fromEvent, timer, combineLatest, from, of, zip, empty, Observable, range, throwError, } from 'rxjs';
 import {
     buffer, bufferCount, bufferTime, bufferToggle, bufferWhen, concat,
-    take, map, combineAll, delay, merge, concatAll, mergeAll, pairwise, mapTo, race, startWith, scan, withLatestFrom, defaultIfEmpty, every
+    take, map, combineAll, delay, merge, concatAll, mergeAll, pairwise,
+    mapTo, race, startWith, scan, withLatestFrom, defaultIfEmpty, every, mergeMap, catchError, retry, tap, publish
 } from 'rxjs/operators';
+
+
+
 @Component({
     selector: 'app-operate',
     templateUrl: './operate.component.html',
@@ -287,31 +291,107 @@ export class OperateComponent implements OnInit {
 
         // const subscribe = hello.subscribe(val => console.log(val));
 
-        const evenNumbers = Observable.create(function(observer) {
-            let value = 0;
-            const interval = setInterval(() => {
-              if (value % 2 === 0) {
-                observer.next(value);
-              }
-              value++;
-            }, 1000);
-          
-            // return () => clearInterval(interval);
-          });
-          // 输出: 0...2...4...6...8
-          const subscribe = evenNumbers.subscribe(val => console.log(val));
-          // 10秒后取消订阅
-          setTimeout(() => {
-            subscribe.unsubscribe();
-          }, 10000);
+        // const evenNumbers = Observable.create(function(observer) {
+        //     let value = 0;
+        //     const interval = setInterval(() => {
+        //       if (value % 2 === 0) {
+        //         observer.next(value);
+        //       }
+        //       value++;
+        //     }, 1000);
+
+        //     // return () => clearInterval(interval);
+        //   });
+        //   // 输出: 0...2...4...6...8
+        //   const subscribe = evenNumbers.subscribe(val => console.log(val));
+        //   // 10秒后取消订阅
+        //   setTimeout(() => {
+        //     subscribe.unsubscribe();
+        //   }, 10000);
 
 
 
+        // empty
+        // empty().subscribe({
+        //     next: () => console.log('Next'),
+        //     complete: () => console.log('Complete!')
+        // });
 
 
+        // fromPromise  rxjs6里面没有fromPromise  用from即可。
+        // const myPromise = willReject => {
+        //     return new Promise((resolve, reject) => {
+        //         if (willReject) {
+        //             reject('Rejected!');
+        //           }
+        //           resolve('Resolved!');
+        //     });
+        // };
+
+        // range(0, 10).pipe(
+        // // of(true, false).pipe(
+        //     mergeMap(val =>
+        //         from(myPromise(val)).pipe(
+        //             catchError(error => of(`Error: ${error}`))
+        //         )
+        //     )
+        // ).subscribe(console.log);
 
 
+        // throwError
+        // const source = throwError('This is an error!');
+        // source.subscribe({
+        //     next: val => console.log(val),
+        //     complete: () => console.log('Complete!'),
+        //     error: val => console.log(`Error: ${val}`)
+        // });
 
+
+        // catchError
+        // const source = throwError('This is an error!');
+        // source.pipe(
+        //     catchError(val => of(`I caught: ${val}`))
+        // ).subscribe(console.log);
+
+
+        // retry
+        // 每1秒发出值
+        // const source = interval(1000);
+        // const example = source.pipe(
+        //     mergeMap(val => {
+        //         // 抛出错误以进行演示
+        //         if (val > 5) {
+        //             return throwError('Error!');
+        //         }
+        //         return of(val);
+        //     }),
+        //     // 出错的话可以重试2次
+        //     retry(2)
+        // );
+        // example.subscribe({
+        //     next: val => console.log(val),
+        //     error: val => console.log(`${val}: Retried 2 times then quit!`)
+        // });
+
+        // publish
+        // 每1秒发出值
+        const source = interval(1000);
+        const example = source.pipe(
+            // 副作用只会执行1次
+            tap(_ => console.log('Do Something!')),
+            // 不会做任何事直到 connect() 被调用
+            publish()
+        );
+        const subscribe = example.subscribe(val =>
+            console.log(`Subscriber One: ${val}`)
+        );
+        const subscribeTwo = example.subscribe(val =>
+            console.log(`Subscriber Two: ${val}`)
+        );
+        // 5秒后调用 connect，这会使得 source 开始发出值
+        setTimeout(() => {
+            // example.connect();
+        }, 5000);
 
 
 
