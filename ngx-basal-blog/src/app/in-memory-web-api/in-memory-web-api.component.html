@@ -1,3 +1,12 @@
-<p *ngFor="let hero of heroes">
-  {{hero.id}} - {{hero.name}}
+<input type="text" #heroName placeholder="name"/>
+<button type="button" (click)="addHeros(heroName.value); heroName.value = ''">add</button>
+<button type="button" (click)="searchHeros(heroName.value);">search</button>
+
+<p *ngFor="let hero of heroes" (click)="edit(hero)">
+  {{hero.id}} - 
+  <span *ngIf="hero != editHero">
+    {{hero.name}}
+  </span>
+  <input *ngIf="hero === editHero" type="text" [(ngModel)]="hero.name" (blur)="update()" (keyup.enter)="update()">
 </p>
+<div>{{markets | json}}</div>
