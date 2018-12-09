@@ -1,3 +1,4 @@
+import { MarketService } from './services/markets.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,25 +14,33 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { InMemoryTestService } from './in-memory-test.service';
 import {httpInterceptorProviders} from './http-interceptors/index';
 
+import {HerosService} from './services/heros.service';
+import { AuthService } from './services/auth.service';
+import { MarketsComponent } from './markets/markets.component';
+import { PackageSearchComponent } from './package-search/package-search.component';
+import { HttpErrorHandler } from './services/http-error-handler.service';
 @NgModule({
   declarations: [
     AppComponent,
     OffLineComponent,
-    InMemoryWebApiComponent
+    InMemoryWebApiComponent,
+    MarketsComponent,
+    PackageSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
-    ),
     // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryTestService, { dataEncapsulation: false },
+    //   InMemoryDataService, { dataEncapsulation: false },
     // )
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    HerosService,
+    AuthService,
+    MarketService,
+    HttpErrorHandler
   ],
   bootstrap: [AppComponent]
 })

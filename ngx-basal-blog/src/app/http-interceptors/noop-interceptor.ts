@@ -13,7 +13,7 @@ export class NoopInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
-        tap(v => console.log(v, req))
+        // tap(v => console.log(v, req))
     );
   }
 }

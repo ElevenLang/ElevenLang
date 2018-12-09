@@ -11,7 +11,6 @@ export interface Hero {
 @Component({
   selector: 'app-in-memory-web-api',
   templateUrl: './in-memory-web-api.component.html',
-  providers: [HerosService],
   styleUrls: ['./in-memory-web-api.component.css']
 })
 export class InMemoryWebApiComponent implements OnInit {
@@ -24,7 +23,8 @@ export class InMemoryWebApiComponent implements OnInit {
   private editHero: Hero;
 
   constructor(private http: HttpClient,
-    private herosService: HerosService) { }
+    private herosService: HerosService,
+    ) { }
 
   ngOnInit() {
     this.getHeroes().subscribe(
@@ -33,6 +33,7 @@ export class InMemoryWebApiComponent implements OnInit {
     this.getTestData();
     this.getDetails('btcusd');
     this.editHero = undefined;
+
   }
 
   getHeroes(): Observable<Hero[]> {
