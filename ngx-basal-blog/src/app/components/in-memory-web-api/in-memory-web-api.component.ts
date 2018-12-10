@@ -16,23 +16,27 @@ export interface Hero {
 export class InMemoryWebApiComponent implements OnInit {
 
   private heroes: Hero[];
+  private mokeData: any[];
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  // private heroesUrl = 'api/heroes';  // URL to web api
   private testDataUrl = 'api/testData';  // URL to web api
+  private fakeDataUrl = 'api/fakeData';  // URL to web api
+
   private markets: any;
   private editHero: Hero;
 
   constructor(private http: HttpClient,
     private herosService: HerosService,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.getHeroes().subscribe(
       data => this.heroes = data
     );
-    this.getTestData();
+    // this.getTestData();
     this.getDetails('btcusd');
     this.editHero = undefined;
+    this.getFakeData().subscribe(res => this.mokeData = res);
 
   }
 
@@ -57,11 +61,11 @@ export class InMemoryWebApiComponent implements OnInit {
     }
   }
 
-  edit(hero){
+  edit(hero) {
     this.editHero = hero;
   }
 
-  update(){
+  update() {
     console.log(this.editHero);
     this.herosService.updateHero(this.editHero).subscribe(console.log);
     this.editHero = undefined;
@@ -74,4 +78,7 @@ export class InMemoryWebApiComponent implements OnInit {
     return this.http.get(this.testDataUrl).subscribe(v => this.markets = v);
   }
 
+  getFakeData(): any {
+    return this.http.get(this.fakeDataUrl);
+  }
 }

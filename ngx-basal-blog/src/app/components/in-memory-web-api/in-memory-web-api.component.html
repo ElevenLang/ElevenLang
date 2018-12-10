@@ -10,3 +10,22 @@
   <input *ngIf="hero === editHero" type="text" [(ngModel)]="hero.name" (blur)="update()" (keyup.enter)="update()">
 </p>
 <div>{{markets | json}}</div>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>active</th>
+    <th>hostname</th>
+    <th>description</th>
+    <th>readyDate</th>
+    <th>domain</th>
+  </tr>
+  <tr *ngFor="let item of mokeData">
+    <td>{{item.id}}</td>
+    <td>{{item.active}}</td>
+    <td>{{item.hostname}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.readyDate}}</td>
+    <td>{{item.domain}}</td>
+  </tr>
+</table>

@@ -20,6 +20,7 @@ import { PackageSearchComponent } from './components/package-search/package-sear
 import { HttpErrorHandler } from './services/http-error-handler.service';
 import { ViewChildrenComponent } from './components/view-children/view-children.component';
 import { PaneComponent } from './components/view-children/pane/pane.component';
+import { environment } from '../../environment/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +35,10 @@ import { PaneComponent } from './components/view-children/pane/pane.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false },
-    // )
+    environment.production ?
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false },
+    ) : []
   ],
   providers: [
     httpInterceptorProviders,
