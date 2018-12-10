@@ -18,13 +18,17 @@ import { AuthService } from './services/auth.service';
 import { MarketsComponent } from './components/markets/markets.component';
 import { PackageSearchComponent } from './components/package-search/package-search.component';
 import { HttpErrorHandler } from './services/http-error-handler.service';
+import { ViewChildrenComponent } from './components/view-children/view-children.component';
+import { PaneComponent } from './components/view-children/pane/pane.component';
 @NgModule({
   declarations: [
     AppComponent,
     OffLineComponent,
     InMemoryWebApiComponent,
     MarketsComponent,
-    PackageSearchComponent
+    PackageSearchComponent,
+    ViewChildrenComponent,
+    PaneComponent
   ],
   imports: [
     BrowserModule,
