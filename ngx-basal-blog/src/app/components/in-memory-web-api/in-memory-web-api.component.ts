@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { HerosService } from '../services/heros.service';
+import { HerosService } from '../../services/heros.service';
 
 export interface Hero {
   id: number;

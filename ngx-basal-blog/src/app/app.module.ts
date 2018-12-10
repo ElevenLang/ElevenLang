@@ -4,20 +4,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { OffLineComponent } from './off-line/off-line.component';
+import { OffLineComponent } from './components/off-line/off-line.component';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { InMemoryWebApiComponent } from './in-memory-web-api/in-memory-web-api.component';
+import { InMemoryWebApiComponent } from './components/in-memory-web-api/in-memory-web-api.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-import { InMemoryTestService } from './in-memory-test.service';
-import {httpInterceptorProviders} from './http-interceptors/index';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import {httpInterceptorProviders} from './http-interceptors';
 
 import {HerosService} from './services/heros.service';
 import { AuthService } from './services/auth.service';
-import { MarketsComponent } from './markets/markets.component';
-import { PackageSearchComponent } from './package-search/package-search.component';
+import { MarketsComponent } from './components/markets/markets.component';
+import { PackageSearchComponent } from './components/package-search/package-search.component';
 import { HttpErrorHandler } from './services/http-error-handler.service';
 @NgModule({
   declarations: [

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 // import { MessageService } from './message.service';
 
@@ -34,7 +35,7 @@ export class HttpErrorHandler {
       const message = (error.error instanceof ErrorEvent) ?
         error.error.message :
        `server returned code ${error.status} with body "${error.error}"`;
-
+      console.log(message);
       // TODO: better job of transforming error for user consumption
     //   this.messageService.add(`${serviceName}: ${operation} failed: ${message}`);
 

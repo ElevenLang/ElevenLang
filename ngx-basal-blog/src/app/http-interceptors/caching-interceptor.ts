@@ -4,7 +4,7 @@ import {
   HttpInterceptor, HttpHandler
 } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { startWith, tap } from 'rxjs/operators';
 
 import { RequestCache } from '../services/request-cache.service';
@@ -39,7 +39,7 @@ export class CachingInterceptor implements HttpInterceptor {
     }
     // cache-or-fetch
     return cachedResponse ?
-      of(cachedResponse) : sendRequest(req, next, this.cache);
+      Observable.of(cachedResponse) : sendRequest(req, next, this.cache);
   }
 }
 

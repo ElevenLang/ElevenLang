@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { NpmPackageInfo, PackageSearchService } from '../services/package-search.service';
+import { NpmPackageInfo, PackageSearchService } from '../../services/package-search.service';
 
 @Component({
   selector: 'app-package-search',
