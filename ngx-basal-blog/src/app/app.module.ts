@@ -21,6 +21,11 @@ import { HttpErrorHandler } from './services/http-error-handler.service';
 import { ViewChildrenComponent } from './components/view-children/view-children.component';
 import { PaneComponent } from './components/view-children/pane/pane.component';
 import { environment } from '../../environment/environment';
+import { AnimateComponent } from './components/animate/animate.component';
+import { AlertComponent } from './components/animate/alert/alert.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +34,11 @@ import { environment } from '../../environment/environment';
     MarketsComponent,
     PackageSearchComponent,
     ViewChildrenComponent,
-    PaneComponent
+    PaneComponent,
+    AnimateComponent,
+    AlertComponent
   ],
+  entryComponents: [AlertComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,7 +46,8 @@ import { environment } from '../../environment/environment';
     environment.production ?
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
-    ) : []
+    ) : [],
+    BrowserAnimationsModule
   ],
   providers: [
     httpInterceptorProviders,

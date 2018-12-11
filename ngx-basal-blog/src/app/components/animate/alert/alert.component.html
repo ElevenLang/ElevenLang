@@ -1,0 +1,13 @@
+<section [@state222]="visibility" 
+         (@state222.start)="animationStart($event)"
+         (@state222.done)="animationDone($event)" class="alert-container">
+    <h1 (click)="output.next('output')">Alert {{type}}</h1>
+<section>
+
+    <div [@.disabled]="isDisabled">
+
+    
+<div style="display: none;" [@myFirstAnimate]="'open'" (@myFirstAnimate.start)="animationStart($event)" (@myFirstAnimate.done)="animationDone($event)">
+    my first animate !
+</div>
+</div>

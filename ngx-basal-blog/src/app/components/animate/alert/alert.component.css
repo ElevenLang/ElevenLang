@@ -1,0 +1,42 @@
+
+  
+.alert-container {
+    background: hotpink;
+    animation: fade 0.3s;
+    transform-origin: left;
+  }
+  
+  /* @keyframes fadeout {
+    from {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scaleX(0);    
+      opacity: 0;
+    }
+  } 
+  
+  @keyframes fade {
+    from {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+  
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  } */
+  @keyframes fade {
+    from {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+  
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }

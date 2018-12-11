@@ -5,7 +5,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy proxy.conf.json --host 0.0.0.0 --disable-host-check --port 9001",
-    "noProxyStart": "ng serve --host 0.0.0.0 --disable-host-check --port 9001",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
