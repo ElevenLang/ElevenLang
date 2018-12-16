@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  phoneNumber;
-  constructor() {
-    // console.log(navigator.onLine);
-  }
+  selectedOS;
+  selectedValue = 'lucy';
 }

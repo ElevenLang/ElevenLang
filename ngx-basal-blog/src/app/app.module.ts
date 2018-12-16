@@ -25,6 +25,7 @@ import { AnimateComponent } from './components/animate/animate.component';
 import { AlertComponent } from './components/animate/alert/alert.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { InternationalPhoneModule } from 'ng4-intl-phone';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   entryComponents: [AlertComponent],
   imports: [
     BrowserModule,
+    InternationalPhoneModule,
     FormsModule,
     HttpClientModule,
     environment.production ?
