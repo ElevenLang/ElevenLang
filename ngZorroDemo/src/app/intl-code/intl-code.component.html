@@ -1,0 +1,39 @@
+<p>
+  intl-code works!
+</p>
+
+
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="validateForm.controls['phoneNumber']">
+      <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+        <ng-template #addOnBeforeTemplate>
+          <nz-select formControlName="phoneNumberPrefix" style="width: 140px;">
+            <nz-option nzCustomContent *ngFor="let item of countryList" nzLabel="{{item.county}}{{item.phoneCo}}"
+              nzValue="{{item.key}}{{item.phoneCo}}">
+              <!-- <img src="../assets//imgs//flags.png" width=20 height=15 > -->
+              <div>
+                <div class="iti-flag" [ngClass]="item.key ? item.key : ''" style="display: inline-block;"></div>
+                <span>
+                  {{item.county}}{{item.phoneCo}}
+                </span>
+              </div>
+
+            </nz-option>
+          </nz-select>
+        </ng-template>
+        <input formControlName="phoneNumber" id="'phoneNumber'" nz-input>
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('phoneNumber').dirty && validateForm.get('phoneNumber').errors">Please
+        input your phone number!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row style="margin-bottom:8px;">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary">Register</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
