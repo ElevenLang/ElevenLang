@@ -43,161 +43,161 @@ describe('AppComponent', () => {
 // });
 
 
-describe('Included matchers:', function () {
+// describe('Included matchers:', function () {
 
-  it('The "toBe" matcher compares with ===', function () {
-    const a = 12;
-    const b = a;
+//   it('The "toBe" matcher compares with ===', function () {
+//     const a = 12;
+//     const b = a;
 
-    expect(a).toBe(b);
-    expect(a).not.toBe(null);
-  });
+//     expect(a).toBe(b);
+//     expect(a).not.toBe(null);
+//   });
 
-  describe('The "toEqual" matcher', function () {
+//   describe('The "toEqual" matcher', function () {
 
-    it('works for simple literals and variables', function () {
-      const a = 12;
-      expect(a).toEqual(12);
-    });
+//     it('works for simple literals and variables', function () {
+//       const a = 12;
+//       expect(a).toEqual(12);
+//     });
 
-    it('should work for objects', function () {
-      const foo = {
-        a: 12,
-        b: 34
-      };
-      const bar = {
-        a: 12,
-        b: 34
-      };
-      expect(foo).not.toEqual(bar);
-    });
-  });
+//     it('should work for objects', function () {
+//       const foo = {
+//         a: 12,
+//         b: 34
+//       };
+//       const bar = {
+//         a: 12,
+//         b: 34
+//       };
+//       expect(foo).not.toEqual(bar);
+//     });
+//   });
 
-  it('The "toMatch" matcher is for regular expressions', function () {
-    const message = 'foo bar baz';
+//   it('The "toMatch" matcher is for regular expressions', function () {
+//     const message = 'foo bar baz';
 
-    expect(message).toMatch(/bar/);
-    expect(message).toMatch('bar');
-    expect(message).not.toMatch(/quux/);
-  });
+//     expect(message).toMatch(/bar/);
+//     expect(message).toMatch('bar');
+//     expect(message).not.toMatch(/quux/);
+//   });
 
-  it('The "toBeDefined" matcher compares against `undefined`', function () {
-    const a = {
-      foo: 'foo'
-    };
+//   it('The "toBeDefined" matcher compares against `undefined`', function () {
+//     const a = {
+//       foo: 'foo'
+//     };
 
-    expect(a.foo).toBeDefined();
-    expect(a.bar).not.toBeDefined();
-  });
+//     expect(a.foo).toBeDefined();
+//     expect(a.bar).not.toBeDefined();
+//   });
 
-  it('The `toBeUndefined` matcher compares against `undefined`', function () {
-    const a = {
-      foo: 'foo'
-    };
+//   it('The `toBeUndefined` matcher compares against `undefined`', function () {
+//     const a = {
+//       foo: 'foo'
+//     };
 
-    expect(a.foo).not.toBeUndefined();
-    expect(a.bar).toBeUndefined();
-  });
+//     expect(a.foo).not.toBeUndefined();
+//     expect(a.bar).toBeUndefined();
+//   });
 
-  it('The \'toBeNull\' matcher compares against null', function () {
-    const a = null;
-    const foo = 'foo';
+//   it('The \'toBeNull\' matcher compares against null', function () {
+//     const a = null;
+//     const foo = 'foo';
 
-    expect(null).toBeNull();
-    expect(a).toBeNull();
-    expect(foo).not.toBeNull();
-  });
+//     expect(null).toBeNull();
+//     expect(a).toBeNull();
+//     expect(foo).not.toBeNull();
+//   });
 
-  it('The \'toBeTruthy\' matcher is for boolean casting testing', function () {
-    var a, foo = 'foo';
+//   it('The \'toBeTruthy\' matcher is for boolean casting testing', function () {
+//     var a, foo = 'foo';
 
-    expect(foo).toBeTruthy();
-    expect(a).not.toBeTruthy();
-  });
+//     expect(foo).toBeTruthy();
+//     expect(a).not.toBeTruthy();
+//   });
 
-  it('The \'toBeFalsy\' matcher is for boolean casting testing', function () {
-    var a, foo = 'foo';
+//   it('The \'toBeFalsy\' matcher is for boolean casting testing', function () {
+//     var a, foo = 'foo';
 
-    expect(a).toBeFalsy();
-    expect(foo).not.toBeFalsy();
-  });
+//     expect(a).toBeFalsy();
+//     expect(foo).not.toBeFalsy();
+//   });
 
-  describe('The \'toContain\' matcher', function () {
-    it('works for finding an item in an Array', function () {
-      const a = ['foo', 'bar', 'baz'];
+//   describe('The \'toContain\' matcher', function () {
+//     it('works for finding an item in an Array', function () {
+//       const a = ['foo', 'bar', 'baz'];
 
-      expect(a).toContain('bar');
-      expect(a).not.toContain('quux');
-    });
+//       expect(a).toContain('bar');
+//       expect(a).not.toContain('quux');
+//     });
 
-    it('also works for finding a substring', function () {
-      const a = 'foo bar baz';
+//     it('also works for finding a substring', function () {
+//       const a = 'foo bar baz';
 
-      expect(a).toContain('bar');
-      expect(a).not.toContain('quux');
-    });
-  });
+//       expect(a).toContain('bar');
+//       expect(a).not.toContain('quux');
+//     });
+//   });
 
-  it('The \'toBeLessThan\' matcher is for mathematical comparisons', function () {
-    const pi = 3.1415926,
-      e = 2.78;
+//   it('The \'toBeLessThan\' matcher is for mathematical comparisons', function () {
+//     const pi = 3.1415926,
+//       e = 2.78;
 
-    expect(e).toBeLessThan(pi);
-    expect(pi).not.toBeLessThan(e);
-  });
+//     expect(e).toBeLessThan(pi);
+//     expect(pi).not.toBeLessThan(e);
+//   });
 
-  it('The \'toBeGreaterThan\' matcher is for mathematical comparisons', function () {
-    const pi = 3.1415926,
-      e = 2.78;
+//   it('The \'toBeGreaterThan\' matcher is for mathematical comparisons', function () {
+//     const pi = 3.1415926,
+//       e = 2.78;
 
-    expect(pi).toBeGreaterThan(e);
-    expect(e).not.toBeGreaterThan(pi);
-  });
+//     expect(pi).toBeGreaterThan(e);
+//     expect(e).not.toBeGreaterThan(pi);
+//   });
 
-  it('The \'toBeCloseTo\' matcher is for precision math comparison', function () {
-    const pi = 3.1415926,
-      e = 2.78;
+//   it('The \'toBeCloseTo\' matcher is for precision math comparison', function () {
+//     const pi = 3.1415926,
+//       e = 2.78;
 
-    expect(pi).not.toBeCloseTo(3.1966, 2);
-    expect(pi).toBeCloseTo(e, 0);
+//     expect(pi).not.toBeCloseTo(3.1966, 2);
+//     expect(pi).toBeCloseTo(e, 0);
 
-    const a = 1.1;
-    const b = 1.5;
-    const c = 1.455;
-    const d = 1.459;
+//     const a = 1.1;
+//     const b = 1.5;
+//     const c = 1.455;
+//     const d = 1.459;
 
-    expect(a).toBeCloseTo(b, 0);
-    expect(a).not.toBeCloseTo(c, 1);
-    expect(c).toBeCloseTo(d);
-  });
+//     expect(a).toBeCloseTo(b, 0);
+//     expect(a).not.toBeCloseTo(c, 1);
+//     expect(c).toBeCloseTo(d);
+//   });
 
-  it('The \'toThrow\' matcher is for testing if a function throws an exception', function () {
-    const foo = function () {
-      return 1 + 2;
-    };
-    const bar = function () {
-      return a + 1;
-    };
-    const baz = function () {
-      throw 'what';
-    };
+//   it('The \'toThrow\' matcher is for testing if a function throws an exception', function () {
+//     const foo = function () {
+//       return 1 + 2;
+//     };
+//     const bar = function () {
+//       return a + 1;
+//     };
+//     const baz = function () {
+//       throw 'what';
+//     };
 
-    expect(foo).not.toThrow();
-    expect(bar).toThrow();
-    expect(baz).toThrow('what');
-  });
+//     expect(foo).not.toThrow();
+//     expect(bar).toThrow();
+//     expect(baz).toThrow('what');
+//   });
 
-  it('The \'toThrowError\' matcher is for testing a specific thrown exception', function () {
-    const foo = function () {
-      throw new TypeError('foo bar baz');
-    };
+//   it('The \'toThrowError\' matcher is for testing a specific thrown exception', function () {
+//     const foo = function () {
+//       throw new TypeError('foo bar baz');
+//     };
 
-    expect(foo).toThrowError('foo bar baz');
-    expect(foo).toThrowError(/bar/);
-    expect(foo).toThrowError(TypeError);
-    expect(foo).toThrowError(TypeError, 'foo bar baz');
-  });
-});
+//     expect(foo).toThrowError('foo bar baz');
+//     expect(foo).toThrowError(/bar/);
+//     expect(foo).toThrowError(TypeError);
+//     expect(foo).toThrowError(TypeError, 'foo bar baz');
+//   });
+// });
 
 
 describe('A spec', function () {
@@ -379,3 +379,74 @@ describe('A spy, when configured to call through', function() {
     expect(fetchedBar).toEqual(123);
   });
 });
+
+
+describe('A spy, when configured to fake a return value', function() {
+  var foo, bar, fetchedBar;
+
+  beforeEach(function() {
+    foo = {
+      setBar: function(value) {
+        bar = value;
+      },
+      getBar: function() {
+        return bar;
+      }
+    };
+
+    spyOn(foo, 'getBar').and.returnValue(745);
+
+    foo.setBar(123);
+    fetchedBar = foo.getBar();
+  });
+
+  it('tracks that the spy was called', function() {
+    expect(foo.getBar).toHaveBeenCalled();
+  });
+
+  it('should not affect other functions', function() {
+    expect(bar).toEqual(123);
+  });
+
+  it('when called returns the requested value', function() {
+    expect(fetchedBar).toEqual(745);
+  });
+});
+
+
+describe('A spy, when configured with an alternate implementation', function() {
+  var foo, bar, fetchedBar;
+
+  beforeEach(function() {
+    foo = {
+      setBar: function(value) {
+        bar = value;
+      },
+      getBar: function() {
+        return bar;
+      }
+    };
+
+
+    spyOn(foo, 'getBar').and.callFake(function(_arguments: any, can: any, be: any, received: any) {
+      return 1001;
+    });
+
+    foo.setBar(123);
+    fetchedBar = foo.getBar();
+  });
+
+  it('tracks that the spy was called', function() {
+    expect(foo.getBar).toHaveBeenCalled();
+  });
+
+  it('should not affect other functions', function() {
+    expect(bar).toEqual(123);
+  });
+
+  it('when called returns the requested value', function() {
+    expect(fetchedBar).toEqual(1001);
+  });
+});
+
+
