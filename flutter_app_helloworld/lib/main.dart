@@ -10,17 +10,20 @@ class MyApp extends StatelessWidget{
               backgroundImage: new NetworkImage('http://jspang.com/static//myimg/blogtouxiang.jpg'),
               radius: 100.0,
           ),
-          new Container(
-            decoration: new BoxDecoration(
-              color:Colors.lightBlue
-            ),
-            padding: EdgeInsets.all(5.0),
-            child: new Text('yqf go go go')
+          new Positioned(
+            top: 10.0,
+            left: 10.0,
+            child: Text('yqf go go go'),
+          ),
+          new Positioned(
+            top: 10.0,
+            right: 10.0,
+            child: Text('技术'),
           )
         ],
       );
 
-      
+
       return MaterialApp(
         title:'ListView widget',
         home:Scaffold(
