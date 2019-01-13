@@ -1,37 +1,34 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(SnackBarDemo());
+void main() {
+  runApp(TabBarDemo());
+}
 
-class SnackBarDemo extends StatelessWidget {
+class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SnackBar Demo',
-      home:Scaffold(
-        appBar: AppBar(title: Text('SnackBar Demo')),
-        body: SnackBarPage(),
-      )
-    );
-  }
-}
-
-class SnackBarPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        child: Text('show snack bar'),
-        onPressed: (){
-          final snackBar = SnackBar(
-            content: Text('Yay! A SnackBar!'),
-            action: SnackBarAction(
-              label: 'undo',
-              onPressed: (){}
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
             ),
-          );
-          // Find the Scaffold in the Widget tree and use it to show a SnackBar
-          Scaffold.of(context).showSnackBar(snackBar);
-        }
+            title: Text('Tabs Demo'),
+          ),
+          body: TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+            ],
+          ),
+        ),
       ),
     );
   }
