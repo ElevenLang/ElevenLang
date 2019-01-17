@@ -4,6 +4,33 @@
 <!-- <app-off-line></app-off-line> -->
 <!-- <app-view-children></app-view-children> -->
 
-<app-animate></app-animate>
+<!-- <app-animate></app-animate> -->
 
-<int-phone-prefix [(ngModel)]="phoneNumber" [locale]="'zh'"></int-phone-prefix>{{phoneNumber}}
+<!-- <int-phone-prefix [(ngModel)]="phoneNumber" [locale]="'zh'"></int-phone-prefix>{{phoneNumber}} -->
+
+<!-- <mat-list>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list> -->
+
+  <h4>Basic mat-select</h4>
+<!-- <mat-form-field>
+  <mat-select placeholder="Favorite food">
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<h4>Basic native select</h4>
+<mat-form-field>
+  <select matNativeControl required>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>

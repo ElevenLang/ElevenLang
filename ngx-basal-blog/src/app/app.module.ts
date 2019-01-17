@@ -26,6 +26,7 @@ import { AlertComponent } from './components/animate/alert/alert.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InternationalPhoneModule } from 'ng4-intl-phone';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { InternationalPhoneModule } from 'ng4-intl-phone';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
     ) : [],
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [
     httpInterceptorProviders,
