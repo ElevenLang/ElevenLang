@@ -27,6 +27,9 @@ import { AlertComponent } from './components/animate/alert/alert.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InternationalPhoneModule } from 'ng4-intl-phone';
 import { SharedModule } from './shared/shared.module';
+import { MaterialComponent } from './components/material/material.component';
+import {MatIconModule} from '@angular/material/icon';
+import { MaterialBackComponent } from './components/material-back/material-back.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { SharedModule } from './shared/shared.module';
     ViewChildrenComponent,
     PaneComponent,
     AnimateComponent,
-    AlertComponent
+    AlertComponent,
+    MaterialComponent,
+    MaterialBackComponent
   ],
   entryComponents: [AlertComponent],
   imports: [
@@ -51,7 +56,8 @@ import { SharedModule } from './shared/shared.module';
       InMemoryDataService, { dataEncapsulation: false },
     ) : [],
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatIconModule
   ],
   providers: [
     httpInterceptorProviders,

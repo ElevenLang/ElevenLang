@@ -1,0 +1,10 @@
+<mat-sidenav-container>
+  <mat-sidenav #sideNav>
+    我是左边菜单
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <button mat-raised-button (click)="sideNav.toggle()">切换左边状态</button>
+    <!-- <router-outlet></router-outlet> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

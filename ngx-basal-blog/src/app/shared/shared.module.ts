@@ -8,7 +8,10 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatButtonToggleModule,
+  MatRippleModule,
+  MatSidenavModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -20,7 +23,10 @@ import {
     MatRadioModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    MatRippleModule,
+    MatSidenavModule
   ],
   declarations: [],
   exports: [
@@ -32,7 +38,10 @@ import {
     MatRadioModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    MatRippleModule,
+    MatSidenavModule
   ]
 })
 export class SharedModule { }
