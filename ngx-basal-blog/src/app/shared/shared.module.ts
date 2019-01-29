@@ -11,7 +11,8 @@ import {
   MatSortModule,
   MatButtonToggleModule,
   MatRippleModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatCheckboxModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {
     MatTableModule,
     MatButtonToggleModule,
     MatRippleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   declarations: [],
   exports: [
@@ -41,7 +43,8 @@ import {
     MatTableModule,
     MatButtonToggleModule,
     MatRippleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ]
 })
 export class SharedModule { }

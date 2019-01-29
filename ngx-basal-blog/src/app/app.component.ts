@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = 'app222';
   phoneNumber;
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
 

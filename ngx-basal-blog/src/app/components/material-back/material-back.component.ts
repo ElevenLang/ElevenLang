@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-material-back',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaterialBackComponent implements OnInit {
 
-  constructor() { }
+  options: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.options = fb.group({
+      hideRequired: false,
+      floatLabel: 'never',
+    });
+  }
 
   ngOnInit() {
   }
