@@ -14,7 +14,9 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
       // TODO: implement initState
       super.initState();
       _eachView = List();
-      _eachView..add(EachView('Home'))..add(EachView('Me'));
+      _eachView
+      ..add(EachView('Home'))
+      ..add(EachView('Me'));
     }
 
 
@@ -24,7 +26,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
       body:_eachView[_index],
       floatingActionButton: FloatingActionButton(
         onPressed:(){
-Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context){
+          Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context){
             return EachView('New Page');
           }));
         },
