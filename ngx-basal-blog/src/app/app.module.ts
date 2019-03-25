@@ -30,6 +30,7 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialComponent } from './components/material/material.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialBackComponent } from './components/material-back/material-back.component';
+import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MaterialBackComponent } from './components/material-back/material-back.
     AnimateComponent,
     AlertComponent,
     MaterialComponent,
-    MaterialBackComponent
+    MaterialBackComponent,
+    TableToggleComponent
   ],
   entryComponents: [AlertComponent],
   imports: [
