@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { OffLineComponent } from './components/off-line/off-line.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiComponent } from './components/in-memory-web-api/in-memory-web-api.component';
@@ -52,6 +52,7 @@ import { TableToggleComponent } from './components/table-toggle/table-toggle.com
     BrowserModule,
     InternationalPhoneModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     environment.production ?
     HttpClientInMemoryWebApiModule.forRoot(
