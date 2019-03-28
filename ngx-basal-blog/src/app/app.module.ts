@@ -31,6 +31,8 @@ import { MaterialComponent } from './components/material/material.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialBackComponent } from './components/material-back/material-back.component';
 import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
+import { TextareaExpandedFullComponent } from './components/textarea-expanded-full/textarea-expanded-full.component';
+import { MultiFormComponent } from './components/multi-form/multi-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { TableToggleComponent } from './components/table-toggle/table-toggle.com
     AlertComponent,
     MaterialComponent,
     MaterialBackComponent,
-    TableToggleComponent
+    TableToggleComponent,
+    TextareaExpandedFullComponent,
+    MultiFormComponent
   ],
   entryComponents: [AlertComponent],
   imports: [
