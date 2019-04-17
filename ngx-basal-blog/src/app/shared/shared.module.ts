@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HighlightDirective } from './highlight.directive';
 import {
   MatButtonModule,
   MatDialogModule,
@@ -14,6 +15,7 @@ import {
   MatSidenavModule,
   MatCheckboxModule
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +32,7 @@ import {
     MatSidenavModule,
     MatCheckboxModule
   ],
-  declarations: [],
+  declarations: [HighlightDirective],
   exports: [
     MatButtonModule,
     MatDialogModule,
@@ -44,7 +46,8 @@ import {
     MatButtonToggleModule,
     MatRippleModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HighlightDirective
   ]
 })
 export class SharedModule { }
