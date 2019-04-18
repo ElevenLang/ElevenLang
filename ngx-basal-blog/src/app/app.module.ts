@@ -31,10 +31,27 @@ import { MaterialComponent } from './components/material/material.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialBackComponent } from './components/material-back/material-back.component';
 import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
-import { TextareaExpandedFullComponent } from './components/textarea-expanded-full/textarea-expanded-full.component';
-import { MultiFormComponent } from './components/multi-form/multi-form.component';
+import { AppRoutingModule } from './app-routing.module';
+
+
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    InternationalPhoneModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    environment.production ?
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false },
+    ) : [],
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModule.forRoot(),
+    MatIconModule,
+    
+  ],
   declarations: [
     AppComponent,
     OffLineComponent,
@@ -48,24 +65,8 @@ import { MultiFormComponent } from './components/multi-form/multi-form.component
     MaterialComponent,
     MaterialBackComponent,
     TableToggleComponent,
-    TextareaExpandedFullComponent,
-    MultiFormComponent
   ],
   entryComponents: [AlertComponent],
-  imports: [
-    BrowserModule,
-    InternationalPhoneModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    environment.production ?
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
-    ) : [],
-    BrowserAnimationsModule,
-    SharedModule,
-    MatIconModule
-  ],
   providers: [
     httpInterceptorProviders,
     HerosService,
