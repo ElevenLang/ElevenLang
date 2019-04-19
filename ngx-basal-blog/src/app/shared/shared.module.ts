@@ -64,7 +64,8 @@ registerLocaleData(zh);
     MatCheckboxModule,
     HighlightDirective,
     NgZorroAntdModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule {

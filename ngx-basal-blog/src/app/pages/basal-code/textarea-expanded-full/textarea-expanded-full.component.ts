@@ -19,23 +19,23 @@ export class TextareaExpandedFullComponent implements ControlValueAccessor {
   onTouched;
 
   writeValue( value : any ) : void {
-    console.log(value);
+    // console.log(value);
     const div = this.textarea.nativeElement;
     this.renderer.setProperty(div, 'textContent', value);
   }
 
   registerOnChange( fn : any ) : void {
-    console.log(fn);
+    // console.log(fn);
     this.onChange = fn;
   }
 
   registerOnTouched( fn : any ) : void {
-    console.log(fn);
+    // console.log(fn);
     this.onTouched = fn;
   }
 
   setDisabledState( isDisabled : boolean ) : void {
-    console.log(isDisabled);
+    // console.log(isDisabled);
     const div = this.textarea.nativeElement;
     const action = isDisabled ? 'addClass' : 'removeClass';
     this.renderer[action](div, 'disabled');

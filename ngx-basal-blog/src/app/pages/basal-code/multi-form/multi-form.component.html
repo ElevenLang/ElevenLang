@@ -1,3 +1,66 @@
+<div>
+    原文链接：<a href="https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2">https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2</a>
+</div>
 <app-textarea-expanded-full [formControl]="control"></app-textarea-expanded-full>
 {{control.value}}
 <p *ngIf="control.getError('required')">error</p>
+
+<form nz-form [formGroup]="multiForm" (ngSubmit)="submitForm()" style="width: 60%;">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="market">market</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="market" id="market" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="currency">currency</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="currency" id="currency" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="eamil">E-mail</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="eamil">Sex&&Name</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <app-select-input formControlName="sexName" [options]="options"></app-select-input>
+            <nz-form-explain *ngIf="multiForm.get('sexName')?.dirty && multiForm.get('sexName')?.errors">Please input your phone number!</nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngFor="let control of controlArray; let i = index">
+        <nz-form-label [nzSm]="6" [nzXs]="24">condition{{i}}</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <app-select-input [formControlName]="control.controlInstance" [options]="options"></app-select-input>
+            <i nz-icon nzType="minus-circle" nzTheme="outline" (click)="removeField(control, $event)"></i>
+            <nz-form-explain *ngIf="
+                getFormControl(control.controlInstance)?.dirty &&
+                getFormControl(control.controlInstance)?.errors
+              ">
+                Please input passenger's name or delete this field.
+            </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 14, offset: 6 }">
+            <button type="button" nz-button nzType="dashed" style="width:100%" (click)="addField($event)">
+                <i nz-icon nzType="plus-circle" nzTheme="outline"></i>Add field
+          </button>
+        </nz-form-control>
+    </nz-form-item>
+
+
+    <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button nz-button nzType="primary">Register</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

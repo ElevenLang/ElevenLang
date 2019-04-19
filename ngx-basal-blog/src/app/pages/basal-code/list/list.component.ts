@@ -10,18 +10,22 @@ export class ListComponent implements OnInit {
   data = [
     {
       title: 'Angular Custom Form Controls Made Easy',
+      link: 'multi-form',
       href: 'https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2'
     },
     {
       title: 'Angular Custom Form Controls Made Easy',
+      link: 'multi-form',
       href: 'https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2'
     },
     {
       title: 'Angular Custom Form Controls Made Easy',
+      link: 'multi-form',
       href: 'https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2'
     },
     {
       title: 'Angular Custom Form Controls Made Easy',
+      link: 'multi-form',
       href: 'https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2'
     }
   ];

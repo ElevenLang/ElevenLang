@@ -32,6 +32,12 @@ import {MatIconModule} from '@angular/material/icon';
 import { MaterialBackComponent } from './components/material-back/material-back.component';
 import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
 import { AppRoutingModule } from './app-routing.module';
+// 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
+import { PlusCircleOutline, MinusCircleOutline } from '@ant-design/icons-angular/icons';
+import { NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd';
+import { IconDefinition } from '@ant-design/icons-angular';
+
+const icons: IconDefinition[] = [ PlusCircleOutline, MinusCircleOutline ];
 
 
 
@@ -39,8 +45,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     InternationalPhoneModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // FormsModule,
+    // ReactiveFormsModule,
     HttpClientModule,
     environment.production ?
     HttpClientInMemoryWebApiModule.forRoot(
@@ -72,7 +78,9 @@ import { AppRoutingModule } from './app-routing.module';
     HerosService,
     AuthService,
     MarketService,
-    HttpErrorHandler
+    HttpErrorHandler,
+    { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // 不提供的话，即为 Ant Design 的主题蓝色
+    { provide: NZ_ICONS, useValue: icons }
   ],
   bootstrap: [AppComponent]
 })
