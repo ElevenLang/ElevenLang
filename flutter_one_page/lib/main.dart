@@ -160,18 +160,6 @@ var _about = Container(
       SizedBox(
         height: 20.0,
       ),
-      // SizedBox(
-      //   height: 50.0,
-      //   child: Text('$about_text', 
-      //   style: TextStyle(
-      //     color: Color(0xff372c2a), height: 1.5,
-      //     decoration: TextDecoration.underline
-      //   ), 
-      //   textAlign: TextAlign.center,
-      //   overflow: TextOverflow.ellipsis,
-      //   maxLines: 2,
-      // ),
-      // ),
       Text('$about_text', 
         style: TextStyle(color: Color(0xff372c2a), height: 1.5), 
         textAlign: TextAlign.center,
@@ -179,6 +167,110 @@ var _about = Container(
     ],
   ),
 );
+
+List<Widget> dishList(number){
+  List<Widget> dishItem = new List();
+  if(number == 1){
+    dishItem.add(Image.asset('assets/images/dish_like.png', width: 20.0,));
+    dishItem.add(SizedBox(width: 10.0,));
+    dishItem.add(Text(
+      '$number side dish',
+      style: TextStyle(
+          color: Color(0xffe7604a)
+      ),
+    ));
+  }else {
+    for(var i = 0; i < number; i++){
+      dishItem.add(Image.asset('assets/images/dish_like.png', width: 20.0,));
+    };
+    dishItem.add(SizedBox(width: 10.0,));
+    dishItem.add(Text(
+      '$number side dishes',
+      style: TextStyle(
+          color: Color(0xffe7604a)
+      ),
+    ));
+  }
+  return dishItem;
+}
+
+var _meals = Container(
+  padding: EdgeInsets.only(top: 20, left: 20.0, right: 20.0, bottom: 20.0),
+  width: double.infinity,
+  child: Column(
+    children: my_meals.map((item){
+     return Container(
+       decoration: BoxDecoration(
+         color: Colors.white,
+         border: Border(
+           bottom: BorderSide(
+               color: Color(0xffd7c9c4),
+               width: 1.0
+           )
+         )
+       ),
+       child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Image.asset('${item['img']}', width: 150.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 180.0,
+                  padding: EdgeInsets.only(left: 20.0, top: 20.0),
+                  child: Text(
+                    '${item['text']}',
+                    style: TextStyle(
+                      color: Color(0xff372c2a),
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: dishList(item['num']),
+                  ),
+                ),
+
+              ],
+            )
+          ],
+        ),
+      );
+    }).toList(),
+  )
+);
+
+Widget _friends(){
+  return Container(
+    padding: EdgeInsets.only(top: 20, left: 20.0, right: 20.0, bottom: 20.0),
+    child: Row(
+      children: <Widget>[
+        Container(
+          width: 360.0,
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: Text(
+            'Friends that purchased meals from this cook',
+            style: TextStyle(
+                color: Color(0xff372c2a),
+                fontSize: 20.0,
+              fontWeight: FontWeight.bold
+            ),
+            textAlign: TextAlign.center,
+          ),
+       )
+
+      ],
+    ),
+
+  );
+}
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -199,7 +291,9 @@ class MyApp extends StatelessWidget {
                 _info,
                 _favourits,
                 _btnGroup,
-                _about
+                _about,
+                _meals,
+                _friends()
               ],
             ),
           )),
