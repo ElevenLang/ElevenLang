@@ -33,6 +33,7 @@ import { MaterialBackComponent } from './components/material-back/material-back.
 import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
 import { TextareaExpandedFullComponent } from './components/textarea-expanded-full/textarea-expanded-full.component';
 import { MultiFormComponent } from './components/multi-form/multi-form.component';
+import { MyNgIfDirective } from './directives/my-ng-if.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MultiFormComponent } from './components/multi-form/multi-form.component
     MaterialBackComponent,
     TableToggleComponent,
     TextareaExpandedFullComponent,
-    MultiFormComponent
+    MultiFormComponent,
+    MyNgIfDirective
   ],
   entryComponents: [AlertComponent],
   imports: [

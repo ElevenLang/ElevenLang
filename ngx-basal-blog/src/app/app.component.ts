@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'app222';
   phoneNumber;
+  condition = false;
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
 
   }

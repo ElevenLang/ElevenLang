@@ -7,7 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./multi-form.component.css']
 })
 export class MultiFormComponent implements OnInit {
-  control = new FormControl({value: 'nice', disabled: true},  Validators.required,);
+  control = new FormControl({value: 'nice', disabled: false},  Validators.required);
 
   constructor() { }
 

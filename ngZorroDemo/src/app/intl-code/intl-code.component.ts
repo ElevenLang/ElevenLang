@@ -16,7 +16,7 @@ import { MarketService } from './../service/markets.service';
 })
 export class IntlCodeComponent implements OnInit {
   validateForm: FormGroup;
-  countryList:any;
+  countryList: any;
   constructor(private fb: FormBuilder, private marketService: MarketService) { }
 
   ngOnInit() {
@@ -32,8 +32,8 @@ export class IntlCodeComponent implements OnInit {
       // password         : [ null, [ Validators.required ] ],
       // checkPassword    : [ null, [ Validators.required, this.confirmationValidator ] ],
       // nickname         : [ null, [ Validators.required ] ],
-      phoneNumberPrefix: [ 'cn+86' ],
-      phoneNumber      : [ null, [ Validators.required ] ],
+      phoneNumberPrefix: ['cn+86'],
+      phoneNumber: [null, [Validators.required]],
       // website          : [ null, [ Validators.required ] ],
       // captcha          : [ null, [ Validators.required ] ],
       // agree            : [ false ]
@@ -42,8 +42,8 @@ export class IntlCodeComponent implements OnInit {
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
-      this.validateForm.controls[ i ].markAsDirty();
-      this.validateForm.controls[ i ].updateValueAndValidity();
+      this.validateForm.controls[i].markAsDirty();
+      this.validateForm.controls[i].updateValueAndValidity();
     }
     console.log(this.validateForm.value);
   }
