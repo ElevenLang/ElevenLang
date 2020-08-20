@@ -31,11 +31,39 @@ import { MaterialComponent } from './components/material/material.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialBackComponent } from './components/material-back/material-back.component';
 import { TableToggleComponent } from './components/table-toggle/table-toggle.component';
+<<<<<<< HEAD
 import { TextareaExpandedFullComponent } from './components/textarea-expanded-full/textarea-expanded-full.component';
 import { MultiFormComponent } from './components/multi-form/multi-form.component';
 import { MyNgIfDirective } from './directives/my-ng-if.directive';
+=======
+import { AppRoutingModule } from './app-routing.module';
+// 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
+import { PlusCircleOutline, MinusCircleOutline } from '@ant-design/icons-angular/icons';
+import { NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd';
+import { IconDefinition } from '@ant-design/icons-angular';
+
+const icons: IconDefinition[] = [ PlusCircleOutline, MinusCircleOutline ];
+
+
+>>>>>>> d8a0598e041935c71588a9b309d8d0fe2737ab21
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    InternationalPhoneModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    HttpClientModule,
+    environment.production ?
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false },
+    ) : [],
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModule.forRoot(),
+    MatIconModule,
+    
+  ],
   declarations: [
     AppComponent,
     OffLineComponent,
@@ -49,31 +77,22 @@ import { MyNgIfDirective } from './directives/my-ng-if.directive';
     MaterialComponent,
     MaterialBackComponent,
     TableToggleComponent,
+<<<<<<< HEAD
     TextareaExpandedFullComponent,
     MultiFormComponent,
     MyNgIfDirective
+=======
+>>>>>>> d8a0598e041935c71588a9b309d8d0fe2737ab21
   ],
   entryComponents: [AlertComponent],
-  imports: [
-    BrowserModule,
-    InternationalPhoneModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    environment.production ?
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
-    ) : [],
-    BrowserAnimationsModule,
-    SharedModule,
-    MatIconModule
-  ],
   providers: [
     httpInterceptorProviders,
     HerosService,
     AuthService,
     MarketService,
-    HttpErrorHandler
+    HttpErrorHandler,
+    { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // 不提供的话，即为 Ant Design 的主题蓝色
+    { provide: NZ_ICONS, useValue: icons }
   ],
   bootstrap: [AppComponent]
 })

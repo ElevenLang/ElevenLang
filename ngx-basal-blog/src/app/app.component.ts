@@ -10,7 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'app222';
   phoneNumber;
+<<<<<<< HEAD
   condition = false;
+=======
+  color: string;
+>>>>>>> d8a0598e041935c71588a9b309d8d0fe2737ab21
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
 
   }

@@ -1,0 +1,6 @@
+<nz-input-group nzCompact>
+    <nz-select [(ngModel)]="selectValue" [ngModelOptions]="{standalone: true}" (ngModelChange)="change($event)">
+        <nz-option *ngFor="let item of options" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+    </nz-select>
+    <input [(ngModel)]="inputValue" (ngModelChange)="change($event)" type="email" nz-input placeholder="Email" style="width: 200px;" />
+</nz-input-group>
